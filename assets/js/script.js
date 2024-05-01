@@ -17,3 +17,4 @@ function greet(name) {
 greet("Max");
 
 // Feel free to modify and add more code as needed
+alert("Hello, world!");

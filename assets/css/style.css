@@ -1,0 +1,43 @@
+/* Primary Colors */
+:root {
+  --primary-color: #007bff; /* Blue */
+  --secondary-color: #6c757d; /* Gray */
+}
+
+/* Background Colors */
+body {
+  background-color: #f8f9fa; /* Light Gray */
+}
+
+/* Text Colors */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #2571bc; /* Dark Gray */
+}
+
+p {
+  color: #6c757d; /* Gray */
+}
+
+/* Button Colors */
+.button {
+  background-color: #007bff; /* Blue */
+  color: #fff; /* White */
+}
+
+.button:hover {
+  background-color: #0056b3; /* Dark Blue */
+}
+
+/* Link Colors */
+a {
+  color: #007bff; /* Blue */
+}
+
+a:hover {
+  color: #0056b3; /* Dark Blue */
+}
