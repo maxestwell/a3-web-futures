@@ -40,8 +40,7 @@ Submit a working link to the website, your code on GitHub and include the resear
 
 ## Assessment formatting guidelines
 
-File type: html, css, markdown
-
+- File type: html, css, markdown
 - Referencing style (including whether referencing is included in the word count, and whether references are assessed in the marking rubric): References are included in the word count. Text references are to be in APA; visual references are to include a link to the source.
 - Cover sheet (if required): N/A
 - Generative AI: use is permitted, but you need to show how you've learnt from any generated content
