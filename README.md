@@ -19,6 +19,7 @@ This assessment will provide evidence towards the following unit learning outcom
 ## Assessment instructions
 
 In this project, you will leverage your front-end web design skills to push the boundaries and create an experimental, responsive web-based interface.
+
 We will kickstart the project using a generative AI tool (e.g., ChatGPT) to provide a basic foundation for you to build upon.
 
 The primary focus will be on showcasing your ability to experiment with new web technologies, understand front-end design concepts, and employ appropriate development methodologies.
