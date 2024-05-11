@@ -22,7 +22,7 @@
 
   <body>
     <div class="sliders">
-      <div class="slider">
+      <div class="slider slider1">
         <label for="volume"><p>Volume</p></label>
         <input
           orient="vertical"
@@ -35,7 +35,7 @@
           value="0.5"
         />
       </div>
-      <div class="slider">
+      <div class="slider slider2">
         <label for="attack"><p>Attack</p></label>
         <input
           orient="vertical"
@@ -48,7 +48,7 @@
           value="0.5"
         />
       </div>
-      <div class="slider">
+      <div class="slider slider3">
         <label for="decay"><p>Decay</p></label>
         <input
           orient="vertical"
@@ -61,7 +61,7 @@
           value="0.5"
         />
       </div>
-      <div class="slider">
+      <div class="slider slider4">
         <label for="sustain"><p>Sustain</p></label>
         <input
           orient="vertical"
@@ -74,7 +74,7 @@
           value="0.5"
         />
       </div>
-      <div class="slider">
+      <div class="slider slider5">
         <label for="release"><p>Release</p></label>
         <input
           orient="vertical"
@@ -86,6 +86,16 @@
           step="0.01"
           value="0.5"
         />
+      </div>
+      <div class="dropdown">
+        <div>
+          <select id="waveform-select">
+            <option value="sine"><p>SINE</p></option>
+            <option value="square"><p>SQUARE</p></option>
+            <option value="triangle"><p>TRIANGLE</p></option>
+            <option value="sawtooth"><p>SAWTOOTH</p></option>
+          </select>
+        </div>
       </div>
     </div>
     <!-- <button id="play-btn">Play</button> -->

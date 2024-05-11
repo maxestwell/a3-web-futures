@@ -3,6 +3,9 @@
   --primary-color: #336666; /* Blue */
   --secondary-color: #f16061; /* Gray */
 }
+body {
+  width: 100vw;
+}
 
 /* Background Colors */
 /* body {
@@ -62,18 +65,34 @@ a:hover {
 
 .sliders {
   display: flex;
+  /* max-width: 100px; */
   /* flex-direction: column; */
 }
 
-.slider {
+.slider,
+.dropdown {
   display: flex;
   flex-direction: column;
   align-items: center;
   /* justify-content: space-between; */
   padding: 5em 0em;
-  border: #fffbf1 1px solid;
+  width: 100px;
 }
 
+.slider1,
+.slider2,
+.slider3,
+.slider4 {
+  border-right: #333333 3px solid;
+}
+.slider1,
+.slider2,
+.slider3,
+.slider4,
+.slider5 {
+  border-top: #333333 3px solid;
+  border-bottom: #333333 3px solid;
+}
 /********** Range Input Styles **********/
 /*Range Reset*/
 input[type="range"] /*[orient="vertical"]*/ {
@@ -139,3 +158,21 @@ input[type="range"]::-moz-range-thumb {
   outline: 3px solid #053a5f;
   outline-offset: 0.125rem;
 } */
+
+/* Style the dropdown container */
+select {
+  /* width: 200px; */
+  /* height: 40px; */
+  border: none;
+  /* border-radius: 5px; */
+  padding: 5px;
+  background-color: none;
+  /* color: white; */
+  font-size: 16px;
+}
+
+/* Style the dropdown options */
+select option {
+  background-color: var(--secondary-color);
+  color: white;
+}

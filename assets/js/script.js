@@ -95,3 +95,9 @@ function drawWaveform() {
 
 // Start drawing the waveform
 drawWaveform();
+
+document
+  .getElementById("waveform-select")
+  .addEventListener("change", function (e) {
+    synth.set({ oscillator: { type: e.target.value } });
+  });
