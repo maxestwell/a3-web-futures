@@ -1,13 +1,31 @@
 /* Primary Colors */
 :root {
-  --primary-color: #007bff; /* Blue */
-  --secondary-color: #6c757d; /* Gray */
+  --primary-color: #336666; /* Blue */
+  --secondary-color: #f16061; /* Gray */
 }
 
 /* Background Colors */
-body {
-  background-color: #333333; /* Light Gray */
+/* body {
+  background: linear-gradient(
+    270deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  background-size: 200% 200%;
+  animation: Gradient 2s ease infinite;
 }
+
+@keyframes Gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+} */
 
 /* Text Colors */
 h1,
@@ -16,37 +34,108 @@ h3,
 h4,
 h5,
 h6 {
-  color: #2571bc; /* Dark Gray */
+  color: #2571bc;
 }
 
 p {
-  color: #6c757d; /* Gray */
+  color: #336666;
+  text-transform: uppercase;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Button Colors */
 .button {
-  background-color: #007bff; /* Blue */
-  color: #fff; /* White */
+  background-color: #007bff;
+  color: #fff;
 }
 
 .button:hover {
-  background-color: #0056b3; /* Dark Blue */
+  background-color: #0056b3;
 }
 
-/* Link Colors */
 a {
-  color: #007bff; /* Blue */
+  color: #007bff;
 }
 
 a:hover {
-  color: #0056b3; /* Dark Blue */
+  color: #0056b3;
 }
 
 .sliders {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
 }
 
 .slider {
-  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: space-between; */
+  padding: 5em 0em;
+  border: #fffbf1 1px solid;
 }
+
+/********** Range Input Styles **********/
+/*Range Reset*/
+input[type="range"] /*[orient="vertical"]*/ {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+  width: 15rem;
+}
+
+/* Removes default focus */
+input[type="range"]:focus {
+  outline: none;
+}
+
+/***** Chrome, Safari, Opera and Edge Chromium styles *****/
+/* slider track */
+input[type="range"]::-webkit-slider-runnable-track {
+  background-color: #053a5f;
+  border-radius: 0.5rem;
+  height: 0.5rem;
+}
+
+/* slider thumb */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  margin-top: -12px; /* Centers thumb on the track */
+
+  /*custom styles*/
+  background-color: #5cd5eb;
+  height: 2rem;
+  width: 1rem;
+}
+
+input[type="range"]:focus::-webkit-slider-thumb {
+  border: 1px solid #fffbf1;
+  outline: 3px solid #fffbf1;
+  outline-offset: 0.125rem;
+}
+
+/******** Firefox styles ********/
+/* slider track */
+input[type="range"]::-moz-range-track {
+  background-color: #333333;
+  border-radius: 0.5rem;
+  /* height: 0.5rem; */
+}
+
+/* slider thumb */
+input[type="range"]::-moz-range-thumb {
+  border: none; /*Removes extra border that FF applies*/
+  border-radius: 0; /*Removes default border-radius that FF applies*/
+
+  /*custom styles*/
+  background-color: #fffbf1;
+  height: 2rem;
+  width: 1rem;
+}
+
+/* input[type="range"]:focus::-moz-range-thumb {
+  border: 1px solid #053a5f;
+  outline: 3px solid #053a5f;
+  outline-offset: 0.125rem;
+} */

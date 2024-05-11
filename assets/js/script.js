@@ -63,3 +63,35 @@ keyboard.up((key) => {
   }
   synth.triggerRelease(key.frequency);
 });
+
+// Create a new waveform analyzer
+const waveform = new Tone.Waveform();
+synth.connect(waveform);
+
+// Create a canvas to draw the waveform
+const canvas = document.createElement("canvas");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+document.body.appendChild(canvas);
+
+const context = canvas.getContext("2d");
+
+// Function to draw the waveform
+function drawWaveform() {
+  requestAnimationFrame(drawWaveform);
+
+  const waveformArray = waveform.getValue();
+
+  context.clearRect(0, 0, canvas.width, canvas.height);
+  context.beginPath();
+  context.moveTo(0, canvas.height / 2);
+  for (let i = 0; i < waveformArray.length; i++) {
+    const x = canvas.width * (i / waveformArray.length);
+    const y = (waveformArray[i] / 2 + 0.5) * canvas.height;
+    context.lineTo(x, y);
+  }
+  context.stroke();
+}
+
+// Start drawing the waveform
+drawWaveform();
