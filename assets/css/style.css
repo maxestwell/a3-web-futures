@@ -6,7 +6,7 @@
 
 /* Background Colors */
 body {
-  background-color: #f8f9fa; /* Light Gray */
+  background-color: #333333; /* Light Gray */
 }
 
 /* Text Colors */
@@ -40,4 +40,13 @@ a {
 
 a:hover {
   color: #0056b3; /* Dark Blue */
+}
+
+.sliders {
+  display: flex;
+  flex-direction: column;
+}
+
+.slider {
+  margin-bottom: 20px;
 }
