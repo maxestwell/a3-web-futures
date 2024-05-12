@@ -4,8 +4,40 @@
   --secondary-color: #f16061; /* Gray */
 }
 body {
-  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
 }
+
+.sliders,
+.dropdown,
+canvas {
+  padding: 20px; /* Reduce padding */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* .sliders {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.dropdown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+} */
 
 /* Background Colors */
 /* body {
@@ -41,7 +73,7 @@ h6 {
 }
 
 p {
-  color: #336666;
+  color: #333333;
   text-transform: uppercase;
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -75,15 +107,12 @@ a:hover {
   flex-direction: column;
   align-items: center;
   /* justify-content: space-between; */
-  padding: 5em 0em;
+  padding: 1em 0em;
   width: 100px;
 }
 
-.slider1,
-.slider2,
-.slider3,
-.slider4 {
-  border-right: #333333 3px solid;
+.slider1 {
+  border-left: #333333 3px solid;
 }
 .slider1,
 .slider2,
@@ -92,15 +121,16 @@ a:hover {
 .slider5 {
   border-top: #333333 3px solid;
   border-bottom: #333333 3px solid;
+  border-right: #333333 3px solid;
 }
 /********** Range Input Styles **********/
 /*Range Reset*/
-input[type="range"] /*[orient="vertical"]*/ {
-  -webkit-appearance: none;
-  appearance: none;
+input[type="range"] [orient="vertical"] {
+  appearance: slider-vertical;
+  -moz-appearance: slider-vertical;
+  -webkit-appearance: slider-vertical;
   background: transparent;
   cursor: pointer;
-  width: 15rem;
 }
 
 /* Removes default focus */
@@ -120,7 +150,7 @@ input[type="range"]::-webkit-slider-runnable-track {
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none; /* Override default look */
   appearance: none;
-  margin-top: -12px; /* Centers thumb on the track */
+  /* margin-top: -12px; Centers thumb on the track */
 
   /*custom styles*/
   background-color: #5cd5eb;
@@ -146,11 +176,17 @@ input[type="range"]::-moz-range-track {
 input[type="range"]::-moz-range-thumb {
   border: none; /*Removes extra border that FF applies*/
   border-radius: 0; /*Removes default border-radius that FF applies*/
+  box-shadow: none; /*Removes default box-shadow that FF applies*/
 
   /*custom styles*/
   background-color: #fffbf1;
-  height: 2rem;
-  width: 1rem;
+  height: 1rem;
+  width: 2rem;
+}
+
+input {
+  background-color: transparent;
+  background: transparent;
 }
 
 /* input[type="range"]:focus::-moz-range-thumb {
@@ -166,13 +202,23 @@ select {
   border: none;
   /* border-radius: 5px; */
   padding: 5px;
-  background-color: none;
-  /* color: white; */
+  background-color: transparent;
+  color: #333333;
   font-size: 16px;
 }
 
 /* Style the dropdown options */
 select option {
-  background-color: var(--secondary-color);
+  /* background-color: var(--secondary-color); */
+  width: 200px;
+  height: 40px;
   color: white;
+}
+
+canvas {
+  position: absolute;
+  transform: -50%, -50%;
+  width: 90%;
+  max-height: 90%;
+  z-index: -1; /* Send the canvas to the back */
 }

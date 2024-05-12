@@ -45,7 +45,7 @@ const keyboard = new AudioKeys({
 });
 
 document.getElementById("volume").addEventListener("input", function (e) {
-  volumeControl.volume.value = Tone.gainToDb(e.target.value);
+  synth.volume.value = Tone.gainToDb(e.target.value);
 });
 
 let activeNotes = [];
@@ -90,8 +90,13 @@ function drawWaveform() {
     const y = (waveformArray[i] / 2 + 0.5) * canvas.height;
     context.lineTo(x, y);
   }
+  context.lineWidth = 1.5; // Change the line width of the waveform
+  context.strokeStyle = "red"; // Change the color of the waveform to red
   context.stroke();
 }
+
+// Start drawing the waveform
+drawWaveform();
 
 // Start drawing the waveform
 drawWaveform();
