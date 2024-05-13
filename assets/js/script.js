@@ -1,95 +1,108 @@
-// This is a JavaScript code block
-// You can start writing your code here
+// const playBTN = document.getElementById("play-btn");
+// const synth = new Tone.Synth();
 
-// Example: Print "Hello, World!" to the console
-console.log("Hello, World!");
+// // const feedbackDelay = new Tone.FeedbackDelay("8n.", 0.7).toDestination();
+// const feedbackDelay = new Tone.FeedbackDelay({
+//   delayTime: 0.7,
+//   feedback: 0.3,
+//   maxDelay: 2,
+//   wet: 0.3,
+// });
 
-// Example: Declare a variable and assign a value
-let message = "Welcome to JavaScript!";
-console.log(message);
+// synth.connect(feedbackDelay);
+// feedbackDelay.toDestination();
 
-// Example: Create a function
-function greet(name) {
-  console.log("Hello, " + name + "!");
+// playBTN.addEventListener("click", () => {
+//   if (Tone.context.state !== "running") {
+//     Tone.start();
+//   }
+//   synth.triggerAttackRelease("C4", "8n");
+// });
+
+const volumeControl = new Tone.Volume().toDestination();
+
+// Create a polyphonic synth and connect it to the master output (your speakers)
+const synth = new Tone.PolySynth(Tone.Synth).toDestination();
+
+document.getElementById("attack").addEventListener("input", function (e) {
+  synth.set({ envelope: { attack: e.target.value } });
+});
+
+document.getElementById("decay").addEventListener("input", function (e) {
+  synth.set({ envelope: { decay: e.target.value } });
+});
+
+document.getElementById("sustain").addEventListener("input", function (e) {
+  synth.set({ envelope: { sustain: e.target.value } });
+});
+
+document.getElementById("release").addEventListener("input", function (e) {
+  synth.set({ envelope: { release: e.target.value } });
+});
+
+const keyboard = new AudioKeys({
+  rows: 1,
+});
+
+document.getElementById("volume").addEventListener("input", function (e) {
+  synth.volume.value = Tone.gainToDb(e.target.value);
+});
+
+let activeNotes = [];
+
+keyboard.down((key) => {
+  console.log(key);
+  activeNotes.push(key.frequency);
+  synth.triggerAttack(key.frequency);
+});
+
+keyboard.up((key) => {
+  const noteIndex = activeNotes.indexOf(key.frequency);
+  if (noteIndex > -1) {
+    activeNotes.splice(noteIndex, 1);
+  }
+  synth.triggerRelease(key.frequency);
+});
+
+// Create a new waveform analyzer
+const waveform = new Tone.Waveform();
+synth.connect(waveform);
+
+// Create a canvas to draw the waveform
+const canvas = document.createElement("canvas");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+document.body.appendChild(canvas);
+
+const context = canvas.getContext("2d");
+
+// Function to draw the waveform
+function drawWaveform() {
+  requestAnimationFrame(drawWaveform);
+
+  const waveformArray = waveform.getValue();
+
+  context.clearRect(0, 0, canvas.width, canvas.height);
+  context.beginPath();
+  context.moveTo(0, canvas.height / 2);
+  for (let i = 0; i < waveformArray.length; i++) {
+    const x = canvas.width * (i / waveformArray.length);
+    const y = (waveformArray[i] / 2 + 0.5) * canvas.height;
+    context.lineTo(x, y);
+  }
+  context.lineWidth = 5; // Change the line width of the waveform
+  context.strokeStyle = "blue"; // Change the color of the waveform to red
+  context.stroke();
 }
 
-// Example: Call the function
-greet("Max");
+// Start drawing the waveform
+drawWaveform();
 
-// Feel free to modify and add more code as needed
-alert("Hello, world!");
+// Start drawing the waveform
+drawWaveform();
 
-console.clear();
-
-// Create an audio context
-const audioContext = new AudioContext();
-
-document.getElementById("playButton").addEventListener("click", function () {
-  // Create an oscillator
-  var oscillator = audioContext.createOscillator();
-
-  // Create a filter
-  var filter = audioContext.createBiquadFilter();
-  filter.type = "lowpass";
-
-  // Get the slider element
-  var filterFrequencySlider = document.getElementById("filterFrequencySlider");
-
-  // Set the initial filter frequency
-  filter.frequency.value = filterFrequencySlider.value;
-
-  // Update the filter frequency when the slider changes
-  filterFrequencySlider.addEventListener("input", function () {
-    filter.frequency.value = filterFrequencySlider.value;
+document
+  .getElementById("waveform-select")
+  .addEventListener("change", function (e) {
+    synth.set({ oscillator: { type: e.target.value } });
   });
-
-  // Get the dropdown menu element
-  var waveformSelector = document.getElementById("waveformSelector");
-
-  // Set the oscillator's type
-  oscillator.type = waveformSelector.value;
-
-  // Create a gain node
-  var gainNode = audioContext.createGain();
-
-  // Create a delay node
-  var delay = audioContext.createDelay();
-
-  // Connect the oscillator to the filter
-  oscillator.connect(filter);
-
-  // Connect the filter to the gain node
-  filter.connect(gainNode);
-
-  // Connect the gain node to the delay node
-  gainNode.connect(delay);
-
-  // Connect the delay node to the audio context's destination
-  delay.connect(audioContext.destination);
-
-  // Get the slider elements
-  var frequencySlider = document.getElementById("frequencySlider");
-  var volumeSlider = document.getElementById("volumeSlider");
-
-  // Set the initial oscillator frequency, gain value, and delay time
-  oscillator.frequency.value = frequencySlider.value;
-  gainNode.gain.value = volumeSlider.value;
-  delay.delayTime.value = delaySlider.value;
-
-  // Update the oscillator frequency, gain value, and delay time when the sliders change
-  frequencySlider.addEventListener("input", function () {
-    oscillator.frequency.value = frequencySlider.value;
-  });
-  volumeSlider.addEventListener("input", function () {
-    gainNode.gain.value = volumeSlider.value;
-  });
-  delaySlider.addEventListener("input", function () {
-    delay.delayTime.value = delaySlider.value;
-  });
-
-  // Start the oscillator
-  oscillator.start();
-
-  // Stop the oscillator after 1 second
-  // oscillator.stop(audioContext.currentTime + 1);
-});

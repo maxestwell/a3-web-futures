@@ -1,13 +1,67 @@
 /* Primary Colors */
 :root {
-  --primary-color: #007bff; /* Blue */
-  --secondary-color: #6c757d; /* Gray */
+  --primary-color: #336666; /* Blue */
+  --secondary-color: #f16061; /* Gray */
+}
+body {
+  background-color: #333333;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
 }
 
-/* Background Colors */
-body {
-  background-color: #f8f9fa; /* Light Gray */
+.sliders,
+.dropdown,
+canvas {
+  padding: 20px; /* Reduce padding */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+/* .sliders {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.dropdown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+} */
+
+/* Background Colors */
+/* body {
+  background: linear-gradient(
+    270deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  background-size: 200% 200%;
+  animation: Gradient 2s ease infinite;
+}
+
+@keyframes Gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+} */
 
 /* Text Colors */
 h1,
@@ -16,28 +70,199 @@ h3,
 h4,
 h5,
 h6 {
-  color: #2571bc; /* Dark Gray */
+  color: BLUE;
 }
 
 p {
-  color: #6c757d; /* Gray */
+  color: #333333;
+  text-transform: uppercase;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Button Colors */
 .button {
-  background-color: #007bff; /* Blue */
-  color: #fff; /* White */
+  background-color: #007bff;
+  color: #fff;
 }
 
 .button:hover {
-  background-color: #0056b3; /* Dark Blue */
+  background-color: #0056b3;
 }
 
-/* Link Colors */
 a {
-  color: #007bff; /* Blue */
+  color: #007bff;
 }
 
 a:hover {
-  color: #0056b3; /* Dark Blue */
+  color: #0056b3;
+}
+
+.sliders {
+  display: flex;
+  /* max-width: 100px; */
+  /* flex-direction: column; */
+}
+
+.slider,
+.dropdown {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: space-between; */
+  padding: 1em 0em;
+  width: 100px;
+}
+
+.slider1 {
+  border-left: #333333 3px solid;
+}
+.slider1,
+.slider2,
+.slider3,
+.slider4,
+.slider5 {
+  border-top: #333333 3px solid;
+  border-bottom: #333333 3px solid;
+  border-right: #333333 3px solid;
+}
+/********** Range Input Styles **********/
+/*Range Reset*/
+input[type="range"] {
+  appearance: slider-vertical;
+  -moz-appearance: slider-vertical;
+  -webkit-appearance: slider-vertical;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* Removes default focus */
+input[type="range"]:focus {
+  outline: none;
+}
+
+/***** Chrome, Safari, Opera and Edge Chromium styles *****/
+/* slider track */
+input[type="range"]::-webkit-slider-runnable-track {
+  background-color: #333333;
+  /* border-radius: 0.5rem; */
+  /* height: 0.5rem; */
+}
+/* slider thumb */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  /* margin-top: -12px; */
+
+  /*custom styles*/
+  background-color: #ff0000; /* Change the color to red */
+  height: 2rem;
+  width: 1rem;
+}
+
+/* input[type="range"]:focus::-webkit-slider-thumb {
+  border: 1px solid #fffbf1;
+  outline: 3px solid #fffbf1;
+  outline-offset: 0.125rem;
+} */
+
+/******** Firefox styles ********/
+/* slider track */
+input[type="range"]::-moz-range-track {
+  background-color: #333333;
+  border-radius: 0.5rem;
+  /* height: 0.5rem; */
+}
+
+/* slider thumb */
+input[type="range"]::-moz-range-thumb {
+  border: none; /*Removes extra border that FF applies*/
+  border-radius: 0; /*Removes default border-radius that FF applies*/
+  box-shadow: none; /*Removes default box-shadow that FF applies*/
+
+  /*custom styles*/
+  background-color: #fffbf1;
+  height: 1rem;
+  width: 2rem;
+}
+
+input {
+  background-color: transparent;
+  background: transparent;
+}
+
+/* input[type="range"]:focus::-moz-range-thumb {
+  border: 1px solid #053a5f;
+  outline: 3px solid #053a5f;
+  outline-offset: 0.125rem;
+} */
+
+/* Style the dropdown container */
+select {
+  /* width: 200px; */
+  /* height: 40px; */
+  border: none;
+  /* border-radius: 5px; */
+  padding: 5px;
+  background-color: transparent;
+  color: #333333;
+  font-size: 16px;
+}
+
+/* Style the dropdown options */
+select option {
+  /* background-color: var(--secondary-color); */
+  width: 200px;
+  height: 40px;
+  color: white;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  font-family: Arial, sans-serif; /* Change the font family */
+  font-size: 16px; /* Change the font size */
+  text-transform: capitalize;
+  color: #333; /* Change the font color */
+  text-align: center; /* Center the text */
+}
+
+.slider > p {
+  color: #333333;
+  text-transform: uppercase;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+  position: relative; /* Make the header's position relative */
+}
+
+header h1 {
+  position: absolute; /* Make the h1's position absolute */
+  top: 30%; /* Center the h1 vertically */
+  left: 50%; /* Center the h1 horizontally */
+  transform: translate(-50%, -100%); /* Adjust the position of the h1 */
+  text-align: center; /* Center the text */
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+canvas {
+  position: relative; /* Make the header's position relative */
+}
+canvas {
+  position: absolute; /* Make the h1's position absolute */
+  top: 50%; /* Center the h1 vertically */
+  left: 50%; /* Center the h1 horizontally */
+  width: 514px;
+  transform: translate(-50%, -135%); /* Adjust the position of the h1 */
+  size: 500px;
+}
+
+.swagbackground {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+  background-color: #fffbf1; /* Change the color to red */
+  z-index: -1;
 }
