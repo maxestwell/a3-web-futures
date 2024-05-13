@@ -90,8 +90,8 @@ function drawWaveform() {
     const y = (waveformArray[i] / 2 + 0.5) * canvas.height;
     context.lineTo(x, y);
   }
-  context.lineWidth = 1.5; // Change the line width of the waveform
-  context.strokeStyle = "red"; // Change the color of the waveform to red
+  context.lineWidth = 5; // Change the line width of the waveform
+  context.strokeStyle = "blue"; // Change the color of the waveform to red
   context.stroke();
 }
 

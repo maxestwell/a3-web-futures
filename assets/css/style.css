@@ -4,6 +4,7 @@
   --secondary-color: #f16061; /* Gray */
 }
 body {
+  background-color: #333333;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -69,7 +70,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: #2571bc;
+  color: BLUE;
 }
 
 p {
@@ -125,7 +126,7 @@ a:hover {
 }
 /********** Range Input Styles **********/
 /*Range Reset*/
-input[type="range"] [orient="vertical"] {
+input[type="range"] {
   appearance: slider-vertical;
   -moz-appearance: slider-vertical;
   -webkit-appearance: slider-vertical;
@@ -141,28 +142,27 @@ input[type="range"]:focus {
 /***** Chrome, Safari, Opera and Edge Chromium styles *****/
 /* slider track */
 input[type="range"]::-webkit-slider-runnable-track {
-  background-color: #053a5f;
-  border-radius: 0.5rem;
-  height: 0.5rem;
+  background-color: #333333;
+  /* border-radius: 0.5rem; */
+  /* height: 0.5rem; */
 }
-
 /* slider thumb */
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none; /* Override default look */
   appearance: none;
-  /* margin-top: -12px; Centers thumb on the track */
+  /* margin-top: -12px; */
 
   /*custom styles*/
-  background-color: #5cd5eb;
+  background-color: #ff0000; /* Change the color to red */
   height: 2rem;
   width: 1rem;
 }
 
-input[type="range"]:focus::-webkit-slider-thumb {
+/* input[type="range"]:focus::-webkit-slider-thumb {
   border: 1px solid #fffbf1;
   outline: 3px solid #fffbf1;
   outline-offset: 0.125rem;
-}
+} */
 
 /******** Firefox styles ********/
 /* slider track */
@@ -215,10 +215,54 @@ select option {
   color: white;
 }
 
-canvas {
+footer {
   position: absolute;
-  transform: -50%, -50%;
-  width: 90%;
-  max-height: 90%;
-  z-index: -1; /* Send the canvas to the back */
+  bottom: 0;
+  font-family: Arial, sans-serif; /* Change the font family */
+  font-size: 16px; /* Change the font size */
+  text-transform: capitalize;
+  color: #333; /* Change the font color */
+  text-align: center; /* Center the text */
+}
+
+.slider > p {
+  color: #333333;
+  text-transform: uppercase;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+  position: relative; /* Make the header's position relative */
+}
+
+header h1 {
+  position: absolute; /* Make the h1's position absolute */
+  top: 30%; /* Center the h1 vertically */
+  left: 50%; /* Center the h1 horizontally */
+  transform: translate(-50%, -100%); /* Adjust the position of the h1 */
+  text-align: center; /* Center the text */
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+canvas {
+  position: relative; /* Make the header's position relative */
+}
+canvas {
+  position: absolute; /* Make the h1's position absolute */
+  top: 50%; /* Center the h1 vertically */
+  left: 50%; /* Center the h1 horizontally */
+  width: 514px;
+  transform: translate(-50%, -135%); /* Adjust the position of the h1 */
+  size: 500px;
+}
+
+.swagbackground {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+  background-color: #fffbf1; /* Change the color to red */
+  z-index: -1;
 }
