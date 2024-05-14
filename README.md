@@ -2,7 +2,7 @@
 
 ## How to:
 
-- 
+![alt text](https://camo.githubusercontent.com/8fbf2bf9b80bbb8ec19a59c6169a0fe81dbf4798d6e60537c6d4eeb7ed8cc181/68747470733a2f2f7261772e6769746875622e636f6d2f6b796c65737465747a2f617564696f6b6579732f6d61737465722f696d616765732f617564696f6b6579732d6d617070696e672d726f7773312e6a7067)
 
 ### My decision-making process in selecting the topic and incorporating AI-generated content.
 
