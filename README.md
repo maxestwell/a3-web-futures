@@ -1,6 +1,10 @@
 # Documentation
 
-## My decision-making process in selecting the topic and incorporating AI-generated content.
+## How to:
+
+- 
+
+### My decision-making process in selecting the topic and incorporating AI-generated content.
 
 - This semester for Emerging Production Techniques I designed an Audio-Visual hand tracking synth. I was inspired by this and wanted to make one using html, CSS and JavaScript. I researched different ways of doing this and landed on this framework called Tone.js. I then looked at some tutorials and documentation to get started. I would then prompt Copilot to find a solution to problems I had during the development of the webpage.
 
